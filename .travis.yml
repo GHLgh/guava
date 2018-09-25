@@ -40,4 +40,5 @@ env:
 branches:
   only:
     - master
+    - working-copy
     - /^release.*$/
