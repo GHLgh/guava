@@ -90,6 +90,19 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>${maven-javadoc-plugin.version}</version>
       </plugin>
+      <plugin>
+        <groupId>org.ekstazi</groupId>
+        <artifactId>ekstazi-maven-plugin</artifactId>
+        <version>5.2.0</version> 
+        <executions>
+          <execution>
+            <id>ekstazi</id>
+            <goals>
+              <goal>select</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
