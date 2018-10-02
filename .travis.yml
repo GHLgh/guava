@@ -15,7 +15,8 @@ addons:
 install: mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn install -U -DskipTests=true -f $ROOT_POM
 
 before_script:
-  - (cd $HOME/try_cache && find . -name '*.clz' -print | cpio -pvdumB /)
+  - (cd $HOME/try_cache && find . -name '*.zlc' -print | cpio -pvdumB /)
+  - (cd $HOME/try_cache && find . -name '*.graph' -print | cpio -pvdumB /)
 
 # https://docs.travis-ci.com/user/common-build-problems/#Build-times-out-because-no-output-was-received
 script: travis_wait 60 mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn starts:starts -U -Dmaven.javadoc.skip=true -f $ROOT_POM
@@ -45,4 +46,5 @@ cache:
     - $HOME/try_cache
 
 before_cache:
-  - find $TRAVIS_BUILD_DIR -name '*.clz' -print | cpio -pvdumB $HOME/try_cache
+  - find $TRAVIS_BUILD_DIR -name '*.zlc' -print | cpio -pvdumB $HOME/try_cache
+  - find $TRAVIS_BUILD_DIR -name '*.graph' -print | cpio -pvdumB $HOME/try_cache
